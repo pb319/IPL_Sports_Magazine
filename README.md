@@ -40,6 +40,10 @@ RENAME TO  fact_bating;
 ALTER TABLE fact_bowling_summary
 RENAME TO  fact_bowling;
 ```
+Connecting Mysql Database with **Power BI**:
+
+  ![03](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/5d9fc943-e6fc-4f9e-85ad-771c22a4a071)
+  ![04](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/2860dd24-6c3b-46b4-9766-9b5332ec0870)
 
 
 
