@@ -20,6 +20,11 @@ analytics. He reached out to Peter Pandey, a journalist in his team who is a dat
    - [dim_players.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800055/dim_players.csv)
    - [fact_bating_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800056/fact_bating_summary.csv)
 
-![01](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/afad602d-1b28-4e05-bd06-c05dc401bb27)
+![01](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/2f5c505a-73e5-471b-8489-94c8c45a0b34)
+
+Similarly, I added all other dimensions and fact tables into the Mysql Workbench:
+
+  ![02](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/b3cd8eaf-1955-4840-88a6-707ba121d2f9)
+
 
 
