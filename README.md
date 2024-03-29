@@ -15,10 +15,10 @@ analytics. He reached out to Peter Pandey, a journalist in his team who is a dat
    `CREATE DATABASE IF NOT EXISTS "ipl";`
 
 - I used Mysql Workbench Table Data Import Wizard to import 
-[fact_bowling_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800053/fact_bowling_summary.csv)
-[dim_match_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800054/dim_match_summary.csv)
-[dim_players.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800055/dim_players.csv)
-[fact_bating_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800056/fact_bating_summary.csv)
+   - [fact_bowling_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800053/fact_bowling_summary.csv)
+   - [dim_match_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800054/dim_match_summary.csv)
+   - [dim_players.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800055/dim_players.csv)
+   - [fact_bating_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800056/fact_bating_summary.csv)
 
 ![01](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/afad602d-1b28-4e05-bd06-c05dc401bb27)
 
