@@ -12,7 +12,7 @@ analytics. He reached out to Peter Pandey, a journalist in his team who is a dat
 ## Data Loading
 1. MySQL
 - First I created a database called "ipl" using the following command
-   `CREATE DATABASE IF NOT EXISTS "ipl";`
+  > `CREATE DATABASE IF NOT EXISTS "ipl";`
 
 - I used Mysql Workbench Table Data Import Wizard to import 
    - [fact_bowling_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800053/fact_bowling_summary.csv)
