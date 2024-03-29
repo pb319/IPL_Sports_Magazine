@@ -12,7 +12,8 @@ analytics. He reached out to Peter Pandey, a journalist in his team who is a dat
 ## Data Loading
 1. MySQL
 - First I created a database called "ipl" using the following command
-  > `CREATE DATABASE IF NOT EXISTS "ipl";`
+
+  ```CREATE DATABASE IF NOT EXISTS "ipl";```
 
 - I used Mysql Workbench Table Data Import Wizard to import 
    - [fact_bowling_summary.csv](https://github.com/pb319/IPL_Sports_Magazine/files/14800053/fact_bowling_summary.csv)
@@ -25,6 +26,20 @@ analytics. He reached out to Peter Pandey, a journalist in his team who is a dat
 Similarly, I added all other dimensions and fact tables into the Mysql Workbench:
 
   ![02](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/b3cd8eaf-1955-4840-88a6-707ba121d2f9)
+
+The table names have been changed slightly using Mysql Workbench using the following bunch of code:
+```
+USE ipl;
+
+ALTER TABLE dim_match_summary
+RENAME TO  dim_match;
+
+ALTER TABLE fact_bating_summary
+RENAME TO  fact_bating;
+
+ALTER TABLE fact_bowling_summary
+RENAME TO  fact_bowling;
+```
 
 
 
