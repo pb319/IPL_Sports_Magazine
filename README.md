@@ -46,4 +46,14 @@ Connecting Mysql Database with **Power BI**:
 
 ## Data Exploration
 
+1. Mysql
+  - Top 10 Batsman
+    ```SELECT * FROM fact_bating LIMIT 5;
+        -- Top 10 batsmen based on past 3 years total runs scored.
+        SELECT batsmanName as Name, SUM(runs)as Total_Run 
+        FROM fact_bating
+        GROUP BY batsmanName
+        ORDER BY Total_Run DESC
+        LIMIT 10;
+    ```
 
