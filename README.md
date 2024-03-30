@@ -44,6 +44,6 @@ Connecting Mysql Database with **Power BI**:
 
   ![04](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/6b2ba598-1206-431c-b311-87f6a198571e)
 
-
+## Data Exploration
 
 
