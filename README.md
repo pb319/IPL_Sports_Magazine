@@ -86,5 +86,8 @@ FROM fact_bowling;
 
 - "matchDate" datatype has been changed from text into Date:
    `= Table.TransformColumnTypes(ipl_dim_match,{{"matchDate", type date}})`
+- "matchYear" column added:
+  `= Table.AddColumn(#"Changed Type", "matchYear", each Date.Year([matchDate]), Int64.Type)`
+
 
 
