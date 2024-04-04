@@ -82,12 +82,23 @@ FROM fact_bowling;
 ```
 
 ## Data Cleaning
+1. Mysql
+  -There were some anamoly some issues while changing datatype of matchDate column. Hence the following SQL command has been employed to manupulate the data a bit:
+    ```
+      set sql_safe_updates =0;
+      UPDATE dim_match
+      SET matchDate = 'May 29, 2023'
+      WHERE matchDate = 'May 28-29, 2023';
+      set sql_safe_updates =1;
+    ```
 1. Power BI
 
 - "matchDate" datatype has been changed from text into Date:
-   `= Table.TransformColumnTypes(ipl_dim_match,{{"matchDate", type date}})`
+   ```
+    = Table.TransformColumnTypes(ipl_dim_match,{{"matchDate", type date}})
+   ```
 - "matchYear" column added:
-  `= Table.AddColumn(#"Changed Type", "matchYear", each Date.Year([matchDate]), Int64.Type)`
-
-
+   ```
+   = Table.AddColumn(#"Changed Type", "matchYear", each Date.Year([matchDate]), Int64.Type)
+   ```
 
