@@ -83,7 +83,7 @@ FROM fact_bowling;
 
 ## Data Cleaning
 1. Mysql
-  -There were some issue with "May 28-29, 2023" entry in the matchYear field while changing datatype of matchDate column. Hence the following SQL command has been employed to manupulate the data a bit:
+  - There were some issue with "May 28-29, 2023" entry in the matchYear field while changing datatype of matchDate column. Hence the following SQL command has been employed to manupulate the data a bit:
     ```
       set sql_safe_updates =0;
       UPDATE dim_match
