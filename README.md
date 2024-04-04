@@ -77,6 +77,14 @@ FROM fact_bating;
 SELECT * FROM fact_bowling LIMIT 5;
 SELECT COUNT(DISTINCT(match_id)) as No_of_Matches,
 COUNT(DISTINCT(bowlerName)) as Batsman_Count
-FROM fact_bowling;```
+FROM fact_bowling;
+
+```
+
+## Data Cleaning
+1. Power BI
+
+- "matchDate" datatype has been changed from text into Date:
+   `= Table.TransformColumnTypes(ipl_dim_match,{{"matchDate", type date}})`
 
 
