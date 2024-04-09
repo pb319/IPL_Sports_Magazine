@@ -61,19 +61,7 @@ Connecting Mysql Database with **Power BI**:
 		COUNT(DISTINCT(team1)) as No_of_Teams, 
 		COUNT(DISTINCT(RIGHT(matchDate,4))) as `Year` 
 		FROM dim_match; 
-        -- Therefore 10 teams participated in 206 matches 
-        
-		SELECT *
-		FROM dim_match
-		WHERE match_id = 'T208201'; 
-		set sql_safe_updates =0; -- Safe mode revoked
-        
-		-- `'May 28-29, 2023'` has been changed to'May 29, 2023'
-        UPDATE dim_match
-		SET matchDate = 'May 29, 2023'
-		WHERE matchDate = 'May 28-29, 2023'; 
-		
-        set sql_safe_updates =1; -- safe mode revived
+        -- Therefore 10 teams participated in 206 matches
 
 	-- dim_players
 		SELECT * FROM dim_players LIMIT 5; 
