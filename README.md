@@ -282,5 +282,5 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
     -- Sunrisers Hyderabad and Royal Challengers Bangalore are the outputs
 
 ```
-
+For more detailed documentation you may have a look into [Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql)
 
