@@ -279,7 +279,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	ORDER BY Avg_Lead DESC
 	LIMIT 2;
     
-    -- Sunrises Hyderabad and Royal Challengers Bangalore are the outputs
+    -- Sunrisers Hyderabad and Royal Challengers Bangalore are the outputs
 
 ```
 
