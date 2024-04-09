@@ -3,7 +3,7 @@ Challenge #10: Analyse historical IPL data and provide insights on IPL 2024 for 
 ## Table of Contents:
 1. [Problem Statement](https://github.com/pb319/IPL_Sports_Magazine/edit/main/README.md#problem-statement)
 2. [Data Modeling](https://github.com/pb319/IPL_Sports_Magazine?tab=readme-ov-file#data-loading)
-
+3. [Primary Data Analysis](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#primary-data-analysis)
 ## Problem Statement
 **"Sports Basics"** is a sports blog company that entered space recently. They
 wanted to get more traffic to their website by releasing a special edition magazine
