@@ -99,7 +99,7 @@ Connecting Mysql Database with **Power BI**:
         -- Total Number of Bowler 202 
 
 ```
-For more detailed documentation 
+For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Data_Exploration.sql)
 
 ## Data Cleaning
 1. Mysql
