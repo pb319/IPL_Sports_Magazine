@@ -54,32 +54,52 @@ Connecting Mysql Database with **Power BI**:
 ```
 -- Data Exploration
 
--- DIM_MATCH
-SELECT * FROM dim_match LIMIT 5;
-SELECT COUNT(match_id) as No_of_Matches, COUNT(DISTINCT(team1)) as No_of_Teams, COUNT(DISTINCT(RIGHT(matchDate,4))) as Year
-FROM dim_match;
-DESC dim_match;
+	-- DIM_MATCH
+		SELECT * FROM dim_match LIMIT 5; 
+        DESC dim_match; 
+		SELECT COUNT(match_id) as No_of_Matches,  
+		COUNT(DISTINCT(team1)) as No_of_Teams, 
+		COUNT(DISTINCT(RIGHT(matchDate,4))) as `Year` 
+		FROM dim_match; 
+        -- Therefore 10 teams participated in 206 matches 
+        
+		SELECT *
+		FROM dim_match
+		WHERE match_id = 'T208201'; 
+		set sql_safe_updates =0; -- Safe mode revoked
+        
+		-- `'May 28-29, 2023'` has been changed to'May 29, 2023'
+        UPDATE dim_match
+		SET matchDate = 'May 29, 2023'
+		WHERE matchDate = 'May 28-29, 2023'; 
+		
+        set sql_safe_updates =1; -- safe mode revived
 
--- dim_players
-SELECT * FROM dim_players LIMIT 5;
-SELECT COUNT(DISTINCT(name)) as Player_Name,
-COUNT(DISTINCT(team)) as No_of_Teams
-FROM dim_players; 
- 
+	-- dim_players
+		SELECT * FROM dim_players LIMIT 5; 
+        SELECT COUNT(DISTINCT(name)) as Player_Name, 
+		COUNT(DISTINCT(team)) as No_of_Teams 
+		FROM dim_players; 
+        -- Datavalidation: Total Teams = 10, otal Number of Players 292
 
--- fact_bating
-SELECT * FROM fact_bating LIMIT 5;
-SELECT COUNT(DISTINCT(match_id)) as No_of_Matches,
-COUNT(DISTINCT(batsmanName)) as Batsman_Count
-FROM fact_bating;
-
--- fact_bowling
-SELECT * FROM fact_bowling LIMIT 5;
-SELECT COUNT(DISTINCT(match_id)) as No_of_Matches,
-COUNT(DISTINCT(bowlerName)) as Batsman_Count
-FROM fact_bowling;
+	-- fact_bating
+		SELECT * FROM fact_bating LIMIT 5; 
+        SELECT COUNT(DISTINCT(match_id)) as No_of_Matches, 
+		COUNT(DISTINCT(batsmanName)) as Batsman_Count 
+		FROM fact_bating;
+        -- Data Consistency: Total Maches played  = 206, Total Number of Batsman is 262
+		
+	-- fact_bowling
+		SELECT * FROM fact_bowling LIMIT 5; -- 5 Rows of `fact_bowling` table
+		
+        SELECT COUNT(DISTINCT(match_id)) as No_of_Matches, 
+		COUNT(DISTINCT(bowlerName)) as Bowler_Count 
+		FROM fact_bowling; 
+        -- AGAIN Corraboration of Total Maches played  = 206
+        -- Total Number of Bowler 202 
 
 ```
+For more detailed documentation 
 
 ## Data Cleaning
 1. Mysql
