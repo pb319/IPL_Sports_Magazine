@@ -126,6 +126,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 10;     
 
 ```
+![01](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/2df0f82d-a504-47d7-a0f7-ffd4b2891a94)
+
 - Top 10 batsmen based on past 3 years batting average. (min 60 balls faced in each season)
 ```
 	-- [Bating Average is the total number of runs they have scored divided by the number of times they have been out]
@@ -147,6 +149,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 10;
 
 ```
+![02](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/2946db55-3a7b-42b4-938f-85669cd560fc)
 
 - Top 10 batsmen based on past 3 years strike rate (min 60 balls faced in each season)
 ```
@@ -166,6 +169,9 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	ORDER BY Avg_SR DESC 
 	LIMIT 10;
 ```
+![03](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/8b89ad59-e6d3-44be-ad3f-3594ce5ee7b7)
+
+
 - Top 10 bowlers based on past 3 years total wickets taken
 ```
 	SELECT DENSE_RANK() OVER(ORDER BY SUM(wickets) DESC) AS Player_Rank,
@@ -179,8 +185,9 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 10;
 	--  Note: 'KagisoRabada', and 'ArshdeepSingh' have the same Total_Wickets ranked at the same level
 	
-
 ```
+![04](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/be08986b-fd09-46e0-a360-82e2e53f313b)
+
 - Top 10 bowlers based on past 3 years bowling average. (min 60 balls bowled in each season)
 ```
 	SELECT DENSE_RANK() OVER(ORDER BY (SUM(runs)/SUM(wickets)) ASC) as Player_Rank, 
@@ -201,6 +208,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
     	LIMIT 10; 	
 
 ```
+![05](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/f8d168f3-0e59-4547-91ae-6bb31e62bd22)
+
 - Top 10 bowlers based on past 3 years economy rate. (min 60 balls bowled in each season)
 ```
 	SELECT  RANK() OVER(ORDER BY (ROUND(avg(economy),2)) ASC ) AS Player_Rank,
@@ -220,6 +229,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 10;
 
 ```
+![06](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/56695488-fe2c-4c4f-954d-7b8d4c40fb59)
+
 - Top 5 batsmen based on past 3 years boundary % (fours and sixes)
 ```
 	-- Boundary %  is the percentage of total run that comes from 4s and 6s
@@ -232,6 +243,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 5;	
 
 ```
+![07](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/9238fca2-79c6-4385-8f0a-9ad2ccf18c4f)
+
 - Top 5 bowlers based on past 3 years dot ball %
 ```
 	-- dot ball % i.e. percentage of dot balls to total ball
@@ -244,6 +257,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 5;	
 
 ```
+![08](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/33c7c1f9-761a-481c-a545-09cc8da1bf70)
+
 - Top 4 teams based on past 3 years winning %
 ```
 	-- (the fraction of games or matches a team or individual has won)
@@ -264,6 +279,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 4;	
 
 ```
+![09](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/02c9c708-1f49-404c-9752-c345f24102ef)
+
 - Top 2 teams with the highest number of wins achieved by chasing targets over the past 3 years
 ```
 	WITH temp AS(SELECT winner,
@@ -282,5 +299,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
     -- Sunrisers Hyderabad and Royal Challengers Bangalore are the outputs
 
 ```
+![10](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/54c4fb86-e364-4bb1-a12c-6e2fe0dfee85)
+
 For more detailed documentation you may have a look into [Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql)
 
