@@ -54,7 +54,7 @@ Connecting Mysql Database with **Power BI**:
 ```
 -- Data Exploration
 
-	-- DIM_MATCH
+	-- dim_match
 		SELECT * FROM dim_match LIMIT 5; 
         DESC dim_match; 
 		SELECT COUNT(match_id) as No_of_Matches,  
@@ -68,14 +68,14 @@ Connecting Mysql Database with **Power BI**:
         SELECT COUNT(DISTINCT(name)) as Player_Name, 
 		COUNT(DISTINCT(team)) as No_of_Teams 
 		FROM dim_players; 
-        -- Datavalidation: Total Teams = 10, otal Number of Players 292
+        -- Data validation: Total Teams = 10, Total Number of Players 292
 
 	-- fact_bating
 		SELECT * FROM fact_bating LIMIT 5; 
         SELECT COUNT(DISTINCT(match_id)) as No_of_Matches, 
 		COUNT(DISTINCT(batsmanName)) as Batsman_Count 
 		FROM fact_bating;
-        -- Data Consistency: Total Maches played  = 206, Total Number of Batsman is 262
+        -- Data Consistency: Total Matches played  = 206, Total Number of Batsman is 262
 		
 	-- fact_bowling
 		SELECT * FROM fact_bowling LIMIT 5; -- 5 Rows of `fact_bowling` table
@@ -83,15 +83,15 @@ Connecting Mysql Database with **Power BI**:
         SELECT COUNT(DISTINCT(match_id)) as No_of_Matches, 
 		COUNT(DISTINCT(bowlerName)) as Bowler_Count 
 		FROM fact_bowling; 
-        -- AGAIN Corraboration of Total Maches played  = 206
-        -- Total Number of Bowler 202 
+        -- AGAIN Corraboration of Total Matches played  = 206
+        -- Total Number of Bowlers 202 
 
 ```
 For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Data_Exploration.sql)
 
 ## Data Cleaning
 1. Mysql
-  - There were some issue with "May 28-29, 2023" entry in the matchYear field while changing datatype of matchDate column. Hence the following SQL command has been employed to manupulate the data a bit:
+  - There were some issues with "May 28-29, 2023" entry in the matchYear field while changing the datatype of matchDate column. Hence the following SQL command has been employed to manupulate the data a bit:
     ```
       set sql_safe_updates =0;
       UPDATE dim_match
