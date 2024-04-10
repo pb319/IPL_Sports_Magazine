@@ -302,4 +302,5 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 ![10](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/54c4fb86-e364-4bb1-a12c-6e2fe0dfee85)
 
 For more detailed documentation you may have a look into [Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql)
+To be continued..
 
