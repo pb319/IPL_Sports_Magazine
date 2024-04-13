@@ -63,6 +63,14 @@ Connecting Mysql Database with **Power BI**:
 		COUNT(DISTINCT(RIGHT(matchDate,4))) as `Year` 
 		FROM dim_match; 
         -- Therefore 10 teams participated in 206 matches
+	
+	-- Let's have a look into the margin column
+			select DISTINCT(
+			CASE 
+				WHEN margin LIKE "%run%" THEN RIGHT(margin,4)
+				WHEN margin LIKE "%wicket%" THEN (RIGHT(margin,7)) END) AS Margin
+			FROM dim_match;
+            -- that is We have 4 different in the form of singular and plural
 
 	-- dim_players
 		SELECT * FROM dim_players LIMIT 5; 
