@@ -1,5 +1,8 @@
 # IPL_-Sports_Magazine
 Challenge #10: Analyse historical IPL data and provide insights on IPL 2024 for a Sports Magazine (Codebasics)
+***
+![Untitled design (16)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/ab524470-01cf-479e-bc8d-9a36544fd143)
+***
 ## Table of Contents:
 0. [Project Link](https://codebasics.io/challenge/codebasics-resume-project-challenge)
 1. [Problem Statement](https://github.com/pb319/IPL_Sports_Magazine#problem-statement)
@@ -310,7 +313,15 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 ```
 ![10](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/54c4fb86-e364-4bb1-a12c-6e2fe0dfee85)
 
-For more detailed documentation you may have a look into [Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql)
+
+In our first social update, we noticed anomalies in some SQL query outputs that require rectification. You may refer to [Old Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql) or [Linked Post](https://www.linkedin.com/posts/pranaybiswas_mysql-query-drills-activity-7183933808914706432-f9d4?utm_source=share&utm_medium=member_desktop).
+
+The Rectified SQL Queries are as follows:
+You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis%20(Rectified).sql))
+
+2. Power BI
+  - Top 10 batsmen based on past 3 years total runs scored
+
 ***
 To be continued with Visualization, Validation and Actionable Insights.
 
