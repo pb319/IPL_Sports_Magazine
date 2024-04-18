@@ -138,7 +138,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 10;     
 
 ```
-![01](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/2df0f82d-a504-47d7-a0f7-ffd4b2891a94)
+![Untitled design (18)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/81f700be-e98a-41e5-9829-46b5044d8cb7)
+
 
 - Top 10 batsmen based on past 3 years batting average. (min 60 balls faced in each season)
 ```
@@ -170,7 +171,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 
 
 ```
-![02](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/7b3dd1ae-a638-47fc-bd91-5e6e3ee89a34)
+![Untitled design (19)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/56270fd7-d62d-4563-bcaf-22b37155f8b2)
+
 
 - Top 10 batsmen based on past 3 years strike rate (min 60 balls faced in each season)
 ```
@@ -190,7 +192,45 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	ORDER BY Avg_SR DESC 
 	LIMIT 10;
 ```
-![03](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/8b89ad59-e6d3-44be-ad3f-3594ce5ee7b7)
+![Untitled design (20)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/85ac9207-5a68-43b2-a9d6-359c75058a73)
+
+- Top 5 batsmen based on past 3 years boundary % (min 60 balls faced in each season)
+```
+-- Boundary %  is the percentage of total run that comes from 4s and 6s (min 60 balls faced in each season)
+    
+    WITH CTE1 AS(SELECT batsmanName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls played
+	FROM fact_bating f
+	INNER JOIN dim_match d
+	ON f.match_id = d.match_id
+	GROUP BY 1, 2
+	HAVING SUM(balls)>60)
+    
+    
+	SELECT batsmanName AS Player_Name,
+	ROUND((100*(4*SUM(`4s`)+6*SUM(`6s`))/SUM(runs)),2) as 'Boundary%'
+	FROM fact_bating AS f
+    WHERE batsmanName IN( 
+			SELECT batsmanName
+			FROM CTE1
+			GROUP BY 1
+            HAVING count(Season) = 3 ) -- All of the Three Seasons Played
+	GROUP BY batsmanName 
+	ORDER BY `Boundary%` DESC
+	LIMIT 5;
+
+	-- Top 10 bowlers based on past 3 years total wickets taken.
+	
+    SELECT DENSE_RANK() OVER(ORDER BY SUM(wickets) DESC) as Player_Rank, bowlerName as Name, 
+	SUM(wickets) as Total_Wickets -- `Total_Wicket` stands for the total wicket taken by each bowler
+	FROM fact_bowling F  
+	INNER JOIN dim_match D
+	ON F.match_id = D.match_id
+	GROUP BY `Name` -- Grouped BY each bowler 
+	ORDER BY Total_Wickets DESC -- Decsending orderof Total_wickets
+	LIMIT 10;
+    
+```
+![Untitled design (21)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/c460713d-1b31-4548-b861-48c066af19a8)
 
 
 - Top 10 bowlers based on past 3 years total wickets taken
