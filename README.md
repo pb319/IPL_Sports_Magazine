@@ -177,7 +177,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 - Top 10 batsmen based on past 3 years strike rate (min 60 balls faced in each season)
 ```
 	SELECT DENSE_RANK() OVER(ORDER BY AVG(SR) DESC)as Player_Rank, batsmanName as Player_Name,
-	 ROUND(avg(SR),2) as Avg_SR 
+	ROUND(avg(SR),2) as Avg_SR 
 	FROM fact_bating F 
 	INNER JOIN dim_match D
 	ON F.match_id = D.match_id 
@@ -198,7 +198,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 ```
 -- Boundary %  is the percentage of total run that comes from 4s and 6s (min 60 balls faced in each season)
     
-    WITH CTE1 AS(SELECT batsmanName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls played
+    	WITH CTE1 AS(SELECT batsmanName, RIGHT(matchDate,4) AS Season 
 	FROM fact_bating f
 	INNER JOIN dim_match d
 	ON f.match_id = d.match_id
@@ -209,11 +209,11 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	SELECT batsmanName AS Player_Name,
 	ROUND((100*(4*SUM(`4s`)+6*SUM(`6s`))/SUM(runs)),2) as 'Boundary%'
 	FROM fact_bating AS f
-    WHERE batsmanName IN( 
+    	WHERE batsmanName IN( 
 			SELECT batsmanName
 			FROM CTE1
 			GROUP BY 1
-            HAVING count(Season) = 3 ) -- All of the Three Seasons Played
+            		HAVING count(Season) = 3 ) 
 	GROUP BY batsmanName 
 	ORDER BY `Boundary%` DESC
 	LIMIT 5;
@@ -233,7 +233,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	GROUP BY `Name` 
 	ORDER BY Total_Wickets DESC 
 	LIMIT 10;
-	--  Note: 'KagisoRabada', and 'ArshdeepSingh' have the same Total_Wickets ranked at the same level
+	
 	
 ```
 ![Untitled design (22)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/7accafcb-ed15-4b04-b06b-df12c3ddec4a)
@@ -242,28 +242,28 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 - Top 10 bowlers based on past 3 years bowling average. (min 60 balls bowled in each season)
 ```
 	    
-    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
+	WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
 	FROM fact_bowling f
 	INNER JOIN dim_match d
 	ON f.match_id = d.match_id
 	GROUP BY 1, 2
 	HAVING SUM(overs)*6 > 60)
     
-    SELECT DENSE_RANK() OVER(ORDER BY (SUM(runs)/SUM(wickets)) ASC) as Player_Rank, -- Ranking
+    	SELECT DENSE_RANK() OVER(ORDER BY (SUM(runs)/SUM(wickets)) ASC) as Player_Rank, -- Ranking
 	bowlerName as Player_Name,
-    ROUND((SUM(runs)/SUM(wickets)),2) as Bowling_Avg --  number of runs they have conceded per wicket taken is `Bowling_Avg`
-    FROM fact_bowling F
+    	ROUND((SUM(runs)/SUM(wickets)),2) as Bowling_Avg 
+    	FROM fact_bowling F
 	INNER JOIN dim_match D
 	ON F.match_id = D.match_id
-    WHERE bowlerName IN( 
+    	WHERE bowlerName IN( 
 			SELECT bowlerName
 			FROM CTE2
 			GROUP BY 1
-            HAVING count(Season) = 3 )-- All of the Three Seasons Bowled 
+			HAVING count(Season) = 3 )
 	GROUP BY bowlerName 
-    HAVING Bowling_Avg IS NOT NULL
-	ORDER BY Bowling_Avg ASC -- Lesser the Bowling_Avg better the bowler 
-    LIMIT 10; 
+    	HAVING Bowling_Avg IS NOT NULL
+	ORDER BY Bowling_Avg ASC 
+    	LIMIT 10; 
 
 
 ```
@@ -272,23 +272,23 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 - Top 10 bowlers based on past 3 years economy rate. (min 60 balls bowled in each season)
 ```
 	
-    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
+    	WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
 	FROM fact_bowling f
 	INNER JOIN dim_match d
 	ON f.match_id = d.match_id
 	GROUP BY 1, 2
 	HAVING SUM(overs)*6 > 60)
 	
-    SELECT  RANK() OVER(ORDER BY (ROUND(avg(economy),2)) ASC ) as Player_Rank,
+    	SELECT  RANK() OVER(ORDER BY (ROUND(avg(economy),2)) ASC ) as Player_Rank,
 	bowlerName, ROUND(avg(economy),3) as Avg_Economy -- Rounded upto 2 decimal place
 	FROM fact_bowling f
 	INNER JOIN dim_match d
 	ON f.match_id =  d.match_id -- `fact_bowling` and `dim_match` has been  Inner Joined on `match_id`
-    WHERE bowlerName IN ( 
+    	WHERE bowlerName IN ( 
 			SELECT bowlerName
 			FROM CTE2
 			GROUP BY 1
-            HAVING count(Season) = 3 )  -- All of the Three Seasons Bowled 
+            		HAVING count(Season) = 3 )  -- All of the Three Seasons Bowled 
 	GROUP BY bowlerName
 	ORDER BY Avg_Economy ASC
 	LIMIT 10;
@@ -300,21 +300,21 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 ```
     -- dot ball % i.e. percentage of dot balls to total ball
     
-    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
+    	WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season 
 	FROM fact_bowling f
 	INNER JOIN dim_match d
 	ON f.match_id = d.match_id
 	GROUP BY 1, 2
 	HAVING SUM(overs)*6 > 60)
 	
-    SELECT bowlerName AS Player_Name,
+    	SELECT bowlerName AS Player_Name,
 	ROUND(100*((SUM(`0s`))/(SUM(overs)*6)),2) as 'Dotball%' 
 	FROM fact_bowling AS f
-    WHERE bowlerName IN ( 
+    	WHERE bowlerName IN ( 
 			SELECT bowlerName
 			FROM CTE2
 			GROUP BY 1
-            HAVING count(Season) = 3 )  -- All of the Three Seasons Bowled 
+            		HAVING count(Season) = 3 ) 
 	GROUP BY bowlerName 
 	ORDER BY `Dotball%` DESC 
 	LIMIT 5;
@@ -324,43 +324,37 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 
 - Top 4 teams based on past 3 years winning %
 ```
-	    -- (the fraction of games or matches a team or individual has won)
-    -- I employed Common Table Expression to excute the query
+-- (the fraction of games or matches a team or individual has won)
+-- I employed Common Table Expression to execute the query
     
-    WITH CTE3 AS(SELECT team1 AS team,
-    COUNT(match_id) as First_bat
-    -- Similar to GROUP BY winner and the selecting aggregated column COUNT(*)
-	-- (COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc -- `Win_Perc` stands for Winning Percentage
+    	WITH CTE3 AS(SELECT team1 AS team,
+	COUNT(match_id) as First_bat
 	FROM dim_match
-    GROUP BY 1
+	GROUP BY 1
 	),
     
     
-    CTE4 AS(SELECT team2 AS team,
-    COUNT(match_id) as First_ball
-    -- Similar to GROUP BY winner and the selecting aggregated column COUNT(*)
-	-- (COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc -- `Win_Perc` stands for Winning Percentage
+    	CTE4 AS(SELECT team2 AS team,
+    	COUNT(match_id) as First_ball
 	FROM dim_match
-    GROUP BY 1
+    	GROUP BY 1
 	),
     
     
 	task AS(SELECT winner AS team,
-    COUNT(*) AS `#Win`
-    -- Similar to GROUP BY winner and the selecting aggregated column COUNT(*)
-	-- (COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc -- `Win_Perc` stands for Winning Percentage
-	FROM dim_match
-    GROUP BY 1
+    	COUNT(*) AS `#Win`
+    	FROM dim_match
+    	GROUP BY 1
 	)
 	
-    SELECT team AS Team,
-    (`First_ball`+`First_bat`) AS Total_play,
-    ROUND((100*`#Win`/(`First_ball`+`First_bat`)),2) AS Win_Prc
-    FROM CTE3
-    JOIN CTE4 USING (team)
-    JOIN task USING (team)
-    ORDER BY 3
-    LIMIT 4;
+    	SELECT team AS Team,
+    	(`First_ball`+`First_bat`) AS Total_play,
+	ROUND((100*`#Win`/(`First_ball`+`First_bat`)),2) AS Win_Prc
+	FROM CTE3
+	JOIN CTE4 USING (team)
+	JOIN task USING (team)
+	ORDER BY 3
+	LIMIT 4;
     
 
 ```
@@ -372,11 +366,10 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
    
 
 	WITH temp AS(SELECT winner,
-	 ROUND(COUNT(CAST(SUBSTRING(margin,1,LOCATE(" ",margin)-1)AS SIGNED)),2) AS Avg_Lead -- Substring `Lead_Number` absolute value of field like `26 wickets` '26' is Lead_Number and 'wickets' is filed 
-	 -- `Field` stands for 'Wicket'/'Run'
-     FROM dim_match
-     WHERE SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) = "wickets" -- Those who chases run and wins must be won by wickets
-     GROUP BY winner , SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) -- substring() gives ou "wickets"/'runs'
+	ROUND(COUNT(CAST(SUBSTRING(margin,1,LOCATE(" ",margin)-1)AS SIGNED)),2) AS Avg_Lead -- Substring `Lead_Number` absolute value of field like `26 wickets` '26' is Lead_Number and 'wickets' is filed 
+	FROM dim_match
+     	WHERE SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) = "wickets" -- Those who chases run and wins must be won by wickets
+     	GROUP BY winner , SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) -- substring() gives ou "wickets"/'runs'
 	 ) 
 
 	SELECT DENSE_RANK() OVER(ORDER BY Avg_Lead DESC) AS Team_Rank,
@@ -395,10 +388,6 @@ In our first social update, we noticed anomalies in some SQL query outputs that 
 
 The Rectified SQL Queries are as follows:
 You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis%20(Rectified).sql))
-
-2. Power BI
-  - Top 10 batsmen based on past 3 years total runs scored
-
 ***
 To be continued with Visualization, Validation and Actionable Insights.
 
