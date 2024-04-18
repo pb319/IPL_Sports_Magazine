@@ -381,7 +381,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 
 
 ```
-![Untitled design (30)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/6fc1f598-0fc9-4e04-80d5-2001f6ff23eb)
+![Untitled design (31)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/043348ec-5e6e-4866-a592-69379769c622)
 
 
 In our first social update, we noticed anomalies in some SQL query outputs that require rectification. You may refer to [Old Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql) or [Linked Post](https://www.linkedin.com/posts/pranaybiswas_mysql-query-drills-activity-7183933808914706432-f9d4?utm_source=share&utm_medium=member_desktop).
