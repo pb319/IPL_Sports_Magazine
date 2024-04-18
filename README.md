@@ -324,45 +324,71 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 
 - Top 4 teams based on past 3 years winning %
 ```
-	-- (the fraction of games or matches a team or individual has won)
+	    -- (the fraction of games or matches a team or individual has won)
+    -- I employed Common Table Expression to excute the query
     
-	WITH task AS(SELECT DISTINCT(winner)AS team,
-	(COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc
-	FROM dim_match)
-
-	SELECT 
-	(DENSE_RANK() OVER(ORDER BY Win_perc DESC) )AS Team_Rank,
-	Team_Name,
-	Win_Perc 
-	FROM (SELECT DISTINCT(winner) AS Team_Name
-	FROM dim_match) d 
-	INNER JOIN task t
-	ON d.Team_Name = team
-	ORDER BY Win_Perc DESC
-	LIMIT 4;	
+    WITH CTE3 AS(SELECT team1 AS team,
+    COUNT(match_id) as First_bat
+    -- Similar to GROUP BY winner and the selecting aggregated column COUNT(*)
+	-- (COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc -- `Win_Perc` stands for Winning Percentage
+	FROM dim_match
+    GROUP BY 1
+	),
+    
+    
+    CTE4 AS(SELECT team2 AS team,
+    COUNT(match_id) as First_ball
+    -- Similar to GROUP BY winner and the selecting aggregated column COUNT(*)
+	-- (COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc -- `Win_Perc` stands for Winning Percentage
+	FROM dim_match
+    GROUP BY 1
+	),
+    
+    
+	task AS(SELECT winner AS team,
+    COUNT(*) AS `#Win`
+    -- Similar to GROUP BY winner and the selecting aggregated column COUNT(*)
+	-- (COUNT(*) OVER(PARTITION BY winner)/COUNT(match_id) OVER())*100 AS Win_Perc -- `Win_Perc` stands for Winning Percentage
+	FROM dim_match
+    GROUP BY 1
+	)
+	
+    SELECT team AS Team,
+    (`First_ball`+`First_bat`) AS Total_play,
+    ROUND((100*`#Win`/(`First_ball`+`First_bat`)),2) AS Win_Prc
+    FROM CTE3
+    JOIN CTE4 USING (team)
+    JOIN task USING (team)
+    ORDER BY 3
+    LIMIT 4;
+    
 
 ```
-![09](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/02c9c708-1f49-404c-9752-c345f24102ef)
+![Untitled design (29)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/87ed1292-ce15-489a-bcfb-c7254886bc49)
 
 - Top 2 teams with the highest number of wins achieved by chasing targets over the past 3 years
 ```
+
+   
+
 	WITH temp AS(SELECT winner,
-	ROUND(AVG(CAST(SUBSTRING(margin,1,LOCATE(" ",margin)-1)AS SIGNED)),2) AS Avg_Lead
-     	FROM dim_match
-     	WHERE SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) = "wickets" 
-     	GROUP BY winner , SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) 
+	 ROUND(COUNT(CAST(SUBSTRING(margin,1,LOCATE(" ",margin)-1)AS SIGNED)),2) AS Avg_Lead -- Substring `Lead_Number` absolute value of field like `26 wickets` '26' is Lead_Number and 'wickets' is filed 
+	 -- `Field` stands for 'Wicket'/'Run'
+     FROM dim_match
+     WHERE SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) = "wickets" -- Those who chases run and wins must be won by wickets
+     GROUP BY winner , SUBSTRING(margin,LOCATE(" ",margin)+1,length(margin)) -- substring() gives ou "wickets"/'runs'
 	 ) 
 
 	SELECT DENSE_RANK() OVER(ORDER BY Avg_Lead DESC) AS Team_Rank,
 	winner, Avg_Lead -- Average lead
 	FROM temp
+	
 	ORDER BY Avg_Lead DESC
 	LIMIT 2;
-    
-    -- Sunrisers Hyderabad and Royal Challengers Bangalore are the outputs
+
 
 ```
-![10](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/54c4fb86-e364-4bb1-a12c-6e2fe0dfee85)
+![Untitled design (30)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/6fc1f598-0fc9-4e04-80d5-2001f6ff23eb)
 
 
 In our first social update, we noticed anomalies in some SQL query outputs that require rectification. You may refer to [Old Primary SQL Analysis Docstring](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis.sql) or [Linked Post](https://www.linkedin.com/posts/pranaybiswas_mysql-query-drills-activity-7183933808914706432-f9d4?utm_source=share&utm_medium=member_desktop).
