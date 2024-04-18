@@ -261,7 +261,7 @@
 	ORDER BY Avg_Lead DESC
 	LIMIT 2;
     
-    -- Sunrisers Hyderabad and Royal Challengers Bangalore are the outputs
+ 
 
 
 
