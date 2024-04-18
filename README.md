@@ -217,17 +217,6 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	GROUP BY batsmanName 
 	ORDER BY `Boundary%` DESC
 	LIMIT 5;
-
-	-- Top 10 bowlers based on past 3 years total wickets taken.
-	
-    SELECT DENSE_RANK() OVER(ORDER BY SUM(wickets) DESC) as Player_Rank, bowlerName as Name, 
-	SUM(wickets) as Total_Wickets -- `Total_Wicket` stands for the total wicket taken by each bowler
-	FROM fact_bowling F  
-	INNER JOIN dim_match D
-	ON F.match_id = D.match_id
-	GROUP BY `Name` -- Grouped BY each bowler 
-	ORDER BY Total_Wickets DESC -- Decsending orderof Total_wickets
-	LIMIT 10;
     
 ```
 ![Untitled design (21)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/c460713d-1b31-4548-b861-48c066af19a8)
@@ -252,7 +241,8 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 
 - Top 10 bowlers based on past 3 years bowling average. (min 60 balls bowled in each season)
 ```
-	    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
+	    
+    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
 	FROM fact_bowling f
 	INNER JOIN dim_match d
 	ON f.match_id = d.match_id
@@ -273,59 +263,64 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	GROUP BY bowlerName 
     HAVING Bowling_Avg IS NOT NULL
 	ORDER BY Bowling_Avg ASC -- Lesser the Bowling_Avg better the bowler 
-    LIMIT 10; 	
+    LIMIT 10; 
+
 
 ```
-![Untitled design (23)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/1f80b840-4326-4905-b1df-cc3799d42972)
+![Untitled design (25)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/1a057ba6-d5ba-4f66-bd3d-e76c8b114772)
 
 - Top 10 bowlers based on past 3 years economy rate. (min 60 balls bowled in each season)
 ```
-	SELECT  RANK() OVER(ORDER BY (ROUND(avg(economy),2)) ASC ) AS Player_Rank,
-	bowlerName, ROUND(avg(economy),2) AS Avg_Economy 
+	
+    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
 	FROM fact_bowling f
 	INNER JOIN dim_match d
-	ON f.match_id =  d.match_id 
-    	WHERE bowlerName IN (
-		SELECT bowlerName
-		FROM fact_bowling F
-		INNER JOIN dim_match D
-		ON F.match_id = D.match_id
-		GROUP BY bowlerName, RIGHT(matchDate,4)
-		HAVING  SUM(overs*6) > 60 )
+	ON f.match_id = d.match_id
+	GROUP BY 1, 2
+	HAVING SUM(overs)*6 > 60)
+	
+    SELECT  RANK() OVER(ORDER BY (ROUND(avg(economy),2)) ASC ) as Player_Rank,
+	bowlerName, ROUND(avg(economy),3) as Avg_Economy -- Rounded upto 2 decimal place
+	FROM fact_bowling f
+	INNER JOIN dim_match d
+	ON f.match_id =  d.match_id -- `fact_bowling` and `dim_match` has been  Inner Joined on `match_id`
+    WHERE bowlerName IN ( 
+			SELECT bowlerName
+			FROM CTE2
+			GROUP BY 1
+            HAVING count(Season) = 3 )  -- All of the Three Seasons Bowled 
 	GROUP BY bowlerName
 	ORDER BY Avg_Economy ASC
 	LIMIT 10;
 
 ```
-![06](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/56695488-fe2c-4c4f-954d-7b8d4c40fb59)
+![Untitled design (26)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/ffa9926d-e452-48bc-8c53-594ea9b857bd)
 
-- Top 5 batsmen based on past 3 years boundary % (fours and sixes)
+- Top 10 bowlers based on past 3 years dot ball % (min 60 balls bowled in each season)
 ```
-	-- Boundary %  is the percentage of total run that comes from 4s and 6s
-
-    	SELECT batsmanName AS Player_Name,
-	ROUND((100*(4*SUM(`4s`)+6*SUM(`6s`))/SUM(runs)),2) as 'Boundary%'
-	FROM fact_bating AS f
-	GROUP BY batsmanName 
-	ORDER BY `Boundary%` DESC
-	LIMIT 5;	
-
-```
-![07](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/9238fca2-79c6-4385-8f0a-9ad2ccf18c4f)
-
-- Top 5 bowlers based on past 3 years dot ball %
-```
-	-- dot ball % i.e. percentage of dot balls to total ball
+    -- dot ball % i.e. percentage of dot balls to total ball
+    
+    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
+	FROM fact_bowling f
+	INNER JOIN dim_match d
+	ON f.match_id = d.match_id
+	GROUP BY 1, 2
+	HAVING SUM(overs)*6 > 60)
 	
-    	SELECT bowlerName AS Player_Name,
+    SELECT bowlerName AS Player_Name,
 	ROUND(100*((SUM(`0s`))/(SUM(overs)*6)),2) as 'Dotball%' 
 	FROM fact_bowling AS f
+    WHERE bowlerName IN ( 
+			SELECT bowlerName
+			FROM CTE2
+			GROUP BY 1
+            HAVING count(Season) = 3 )  -- All of the Three Seasons Bowled 
 	GROUP BY bowlerName 
 	ORDER BY `Dotball%` DESC 
-	LIMIT 5;	
+	LIMIT 5;
 
 ```
-![08](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/33c7c1f9-761a-481c-a545-09cc8da1bf70)
+![Untitled design (27)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/1ea459bf-3851-4ab0-8b4d-f68774641f1a)
 
 - Top 4 teams based on past 3 years winning %
 ```
