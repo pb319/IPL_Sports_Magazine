@@ -143,25 +143,34 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 - Top 10 batsmen based on past 3 years batting average. (min 60 balls faced in each season)
 ```
 	-- [Bating Average is the total number of runs they have scored divided by the number of times they have been out]
-	SELECT DENSE_RANK() OVER(ORDER BY ROUND(SUM(runs)/SUM(CASE WHEN `out/not_out` = "out" THEN 1 ELSE 0 END),2) DESC) AS Player_Rank, 
-	batsmanName AS Player_Name,
-	ROUND(SUM(runs)/COUNT(CASE WHEN `out/not_out` = "out" THEN 1 ELSE NULL END),2) AS Bating_Average
+    
+    	WITH CTE1 AS(SELECT batsmanName, RIGHT(matchDate,4) AS Season 
+	FROM fact_bating f
+	INNER JOIN dim_match d
+	ON f.match_id = d.match_id
+	GROUP BY 1, 2
+	HAVING SUM(balls)>60)
+
+            
+	SELECT DENSE_RANK() OVER(ORDER BY ROUND(SUM(runs)/SUM(CASE WHEN `out/not_out` = "out" THEN 1 ELSE 0 END),2) DESC) as Player_Rank, 
+	batsmanName as Player_Name,
+     	ROUND(SUM(runs)/COUNT(CASE WHEN `out/not_out` = "out" THEN 1 ELSE NULL END),2) AS Bating_Average
 	FROM fact_bating F 
-	INNER JOIN dim_match D  
+	INNER JOIN dim_match D   -- `dim_match` and `fact_bating` has been Inner Joined using `match_id`
 	ON F.match_id = D.match_id 
-    	WHERE batsmanName IN( 
+	WHERE batsmanName IN( 
 			SELECT batsmanName
-			FROM fact_bating f
-			INNER JOIN dim_match d
-            		ON f.match_id = d.match_id
-			GROUP BY batsmanName , RIGHT(matchDate,4)
-			HAVING SUM(balls)>60)
+			FROM CTE1
+			GROUP BY 1
+            		HAVING count(Season) = 3)  
 	GROUP BY batsmanName 
-	ORDER BY Bating_Average DESC 
+	HAVING COUNT(DISTINCT(RIGHT(matchDate,4)))=3 
+	ORDER BY Bating_Average DESC -- ordered in decsending order
 	LIMIT 10;
 
+
 ```
-![02](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/2946db55-3a7b-42b4-938f-85669cd560fc)
+![02](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/7b3dd1ae-a638-47fc-bd91-5e6e3ee89a34)
 
 - Top 10 batsmen based on past 3 years strike rate (min 60 balls faced in each season)
 ```
