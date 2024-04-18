@@ -247,29 +247,36 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	--  Note: 'KagisoRabada', and 'ArshdeepSingh' have the same Total_Wickets ranked at the same level
 	
 ```
-![04](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/be08986b-fd09-46e0-a360-82e2e53f313b)
+![Untitled design (22)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/7accafcb-ed15-4b04-b06b-df12c3ddec4a)
+
 
 - Top 10 bowlers based on past 3 years bowling average. (min 60 balls bowled in each season)
 ```
-	SELECT DENSE_RANK() OVER(ORDER BY (SUM(runs)/SUM(wickets)) ASC) as Player_Rank, 
+	    WITH CTE2 AS(SELECT bowlerName, RIGHT(matchDate,4) AS Season -- CTE Filtered by Atleast 60 balls delivered
+	FROM fact_bowling f
+	INNER JOIN dim_match d
+	ON f.match_id = d.match_id
+	GROUP BY 1, 2
+	HAVING SUM(overs)*6 > 60)
+    
+    SELECT DENSE_RANK() OVER(ORDER BY (SUM(runs)/SUM(wickets)) ASC) as Player_Rank, -- Ranking
 	bowlerName as Player_Name,
-	ROUND((SUM(runs)/SUM(wickets)),2) as Bowling_Avg 
-    	FROM fact_bowling F
+    ROUND((SUM(runs)/SUM(wickets)),2) as Bowling_Avg --  number of runs they have conceded per wicket taken is `Bowling_Avg`
+    FROM fact_bowling F
 	INNER JOIN dim_match D
 	ON F.match_id = D.match_id
-    	WHERE bowlerName IN(
-		SELECT bowlerName
-		FROM fact_bowling F
-		INNER JOIN dim_match D
-		ON F.match_id = D.match_id
-		GROUP BY bowlerName,RIGHT(matchDate,4)
-		HAVING  SUM(overs*6) > 60 )
+    WHERE bowlerName IN( 
+			SELECT bowlerName
+			FROM CTE2
+			GROUP BY 1
+            HAVING count(Season) = 3 )-- All of the Three Seasons Bowled 
 	GROUP BY bowlerName 
-	ORDER BY Bowling_Avg ASC  
-    	LIMIT 10; 	
+    HAVING Bowling_Avg IS NOT NULL
+	ORDER BY Bowling_Avg ASC -- Lesser the Bowling_Avg better the bowler 
+    LIMIT 10; 	
 
 ```
-![05](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/f8d168f3-0e59-4547-91ae-6bb31e62bd22)
+![Untitled design (23)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/1f80b840-4326-4905-b1df-cc3799d42972)
 
 - Top 10 bowlers based on past 3 years economy rate. (min 60 balls bowled in each season)
 ```
