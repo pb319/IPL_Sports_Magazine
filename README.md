@@ -219,7 +219,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
 	LIMIT 5;
     
 ```
-![Untitled design (21)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/c460713d-1b31-4548-b861-48c066af19a8)
+![Untitled design (28)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/33d6144e-25c7-4c45-9873-29f60349fb31)
 
 
 - Top 10 bowlers based on past 3 years total wickets taken
