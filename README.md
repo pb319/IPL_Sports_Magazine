@@ -102,7 +102,7 @@ Connecting Mysql Database with **Power BI**:
 For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Data_Exploration.sql)
 
 ## Data Cleaning
-1. Mysql (Validated by Power BI Dashboar in the background)
+1. Mysql 
   - There were some issues with "May 28-29, 2023" entry in the matchYear field while changing the datatype of matchDate column. Hence the following SQL command has been employed to manupulate the data a bit:
     ```
       set sql_safe_updates =0;
@@ -123,7 +123,7 @@ For more detailed documentation [Click Here](https://github.com/pb319/IPL_Sports
    ```
 
 ## Primary Data Analysis:
-1. Mysql
+1. Mysql (Validated by Power BI Dashboar in the background)
   - Top 10 batsmen based on past 3 years total runs scored
 ```
 	-- Primary Analysis
