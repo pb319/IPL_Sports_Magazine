@@ -74,3 +74,4 @@ Bating_100$PC3 = ((-0.0457504257)*Bating_100$NO)+((-0.9682368592)*Bating_100$Avg
 Bating_100
 new_model = lm(Runs~PC1+PC2+PC3, data = Bating_100)
 summary(new_model)
+plot(lm(Runs~PC1+PC2+PC3,data = Bating_100))
