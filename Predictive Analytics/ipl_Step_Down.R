@@ -56,11 +56,12 @@ ind_var = Bating_100[,c('NO', 'Avg','BF','SR','100','50','4s','6s')]
 dep_var = Bating_100[,c("Runs")] 
 
 ## Principal Component Analysis
-library(factoextra)
 Dim = prcomp(ind_var)
 Dim
 summary(Dim)
 ## Scree Plot showing explained variation
+install.packages("factoextra")
+library(factoextra)
 fviz_eig(Dim)
 
 ## Hence it is clearly visible that taking first three Principal Components will suffice
