@@ -76,3 +76,8 @@ new_model = lm(Runs~PC1+PC2+PC3, data = Bating_100)
 summary(new_model)
 plot(lm(Runs~PC1+PC2+PC3,data = Bating_100))
 # So We can say that the PC3 is not a significant component, henceforth we shall consider only PC1, PC2 while model building in Python
+
+install.packages("openxlsx")
+library(openxlsx)
+file_path <- "Bating_100(new).xlsx"
+write.xlsx(Bating_100, file_path)
