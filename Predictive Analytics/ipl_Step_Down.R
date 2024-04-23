@@ -21,7 +21,6 @@ summary(model2)
 dw_result <- dwtest(model2)
 dw_result
 
-# AIF Score (lesser the value, effective the model)
 
 # Example: Checking homoscedasticity
 # Create a plot of residuals vs. fitted values
@@ -56,6 +55,7 @@ ind_var = Bating_100[,c('NO', 'Avg','BF','SR','100','50','4s','6s')]
 dep_var = Bating_100[,c("Runs")] 
 
 ## Principal Component Analysis
+install.packages("factoextra")
 library(factoextra)
 Dim = prcomp(ind_var)
 Dim
@@ -87,3 +87,5 @@ install.packages("openxlsx")
 library(openxlsx)
 file_path <- "Bating_100(new).xlsx"
 write.xlsx(Bating_100, file_path)
+
+
