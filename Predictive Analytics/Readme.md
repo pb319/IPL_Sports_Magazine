@@ -4,6 +4,13 @@ Here in this section we will deal with various machine learning models and Satis
 1.  Orange Cap
 
 ## Orange Cap:
-Objective: To predict the player having maximum total run in the IPL season 2024.
-Methodologies: 
-- R studio has been used to 
+#### _Objective_: 
+-To predict the player having maximum total run in the IPL season 2024.
+
+#### _Methodologies_: 
+- Assumptions like linear realationship, Independence of errors, Autocorrelation, Normality of errors has been checked
+- Primary model has been made through Stepwise Regression method
+- Multicollinearity of independent variable has been identified by Variance Information Factor
+- Multicollinearity of independent variable has been addressed by Principal Component Analysis
+- Test of Significance has been considered while model building
+- Reliability has been reconfirmed by R-Squared and Adjusted R-Squred
