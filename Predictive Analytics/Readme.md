@@ -9,7 +9,7 @@ Here in this section we will deal with various machine learning models and Satis
 - To predict the player having maximum total run in the IPL season 2024.
 
 #### _Methodologies_: 
-- Assumptions like linear realationship, Independence of errors, Autocorrelation, Normality of errors has been checked
+- Assumptions like Independence of errors, Normality of errors, etc. has been checked
 - Primary model has been made through Stepwise Regression method
 - Multicollinearity of independent variable has been identified by Variance Information Factor
 - Multicollinearity of independent variable has been addressed by Principal Component Analysis
