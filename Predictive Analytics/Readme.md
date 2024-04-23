@@ -1,7 +1,8 @@
 # The Orange and Purple Cap Prediction
 Here in this section we will deal with various machine learning models and Satistical analysis to optimize those models mostly deployed through R and Python as a part of our "Predictive Analytics".
 ### Table of Contents:
-1.  Orange Cap
+1. [Objective](https://github.com/pb319/IPL_Sports_Magazine/tree/main/Predictive%20Analytics#orange-cap)
+2. [Methodolgy](https://github.com/pb319/IPL_Sports_Magazine/tree/main/Predictive%20Analytics#methodologies)
 
 ## Orange Cap:
 #### _Objective_: 
