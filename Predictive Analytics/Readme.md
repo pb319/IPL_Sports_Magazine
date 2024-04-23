@@ -5,7 +5,7 @@ Here in this section we will deal with various machine learning models and Satis
 
 ## Orange Cap:
 #### _Objective_: 
--To predict the player having maximum total run in the IPL season 2024.
+- To predict the player having maximum total run in the IPL season 2024.
 
 #### _Methodologies_: 
 - Assumptions like linear realationship, Independence of errors, Autocorrelation, Normality of errors has been checked
