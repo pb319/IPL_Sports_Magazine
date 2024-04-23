@@ -15,3 +15,5 @@ Here in this section we will deal with various machine learning models and Satis
 - Multicollinearity of independent variable has been addressed by Principal Component Analysis
 - Test of Significance has been considered while model building
 - Reliability has been reconfirmed by R-Squared and Adjusted R-Squred
+
+_[Linked Post](https://bit.ly/3io5qqX)_
