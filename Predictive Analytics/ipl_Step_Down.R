@@ -56,12 +56,11 @@ ind_var = Bating_100[,c('NO', 'Avg','BF','SR','100','50','4s','6s')]
 dep_var = Bating_100[,c("Runs")] 
 
 ## Principal Component Analysis
+library(factoextra)
 Dim = prcomp(ind_var)
 Dim
 summary(Dim)
 ## Scree Plot showing explained variation
-install.packages("factoextra")
-library(factoextra)
 fviz_eig(Dim)
 
 ## Hence it is clearly visible that taking first three Principal Components will suffice
@@ -71,11 +70,18 @@ Bating_100$PC2 = ((0.0053420356)*Bating_100$NO)+((0.1197771531)*Bating_100$Avg)+
 
 Bating_100$PC3 = ((-0.0457504257)*Bating_100$NO)+((-0.9682368592)*Bating_100$Avg)+((0.1763452449)*Bating_100$BF)+((0.1516984763)*Bating_100$SR)+((-0.0009854498)*Bating_100$`100`)+((-0.0042542952)*Bating_100$`50`)+((0.0777294403)*Bating_100$`4s`)+((-0.0159145808)*Bating_100$`6s`)      
 
-Bating_100
-new_model = lm(Runs~PC1+PC2+PC3, data = Bating_100)
-summary(new_model)
+#Three Component Model
+new_model1 = lm(Runs~PC1+PC2+PC3, data = Bating_100)
+summary(new_model1)
 plot(lm(Runs~PC1+PC2+PC3,data = Bating_100))
-# So We can say that the PC3 is not a significant component, henceforth we shall consider only PC1, PC2 while model building in Python
+
+#Two Component Model
+new_model2 = lm(Runs~PC1+PC2, data = Bating_100)
+summary(new_model2)
+plot(lm(Runs~PC1+PC2,data = Bating_100))
+
+# So We can say that the PC3 is not a significant component, henceforth we 
+# shall consider only PC1, PC2 while model building in Python
 
 install.packages("openxlsx")
 library(openxlsx)
