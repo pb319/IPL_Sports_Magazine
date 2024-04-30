@@ -10,8 +10,8 @@
 1. [Problem Statement](https://github.com/pb319/IPL_Sports_Magazine#problem-statement)
 2. [Data Modeling](https://github.com/pb319/IPL_Sports_Magazine?tab=readme-ov-file#data-loading)
 3. [Primary Data Analysis](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#primary-data-analysis)
-4. [Orange Cap and Purple Cap Prediction](https://github.com/pb319/IPL_Sports_Magazine/edit/main/README.md#the-orange-and-purple-cap-prediction)
-5. [My Team 11]()
+4. [Orange Cap and Purple Cap Prediction](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#the-orange-and-purple-cap-prediction)
+5. [My Team 11](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#my-team-11)
 ## Problem Statement
 **"Sports Basics"** is a sports blog company that entered space recently. They
 wanted to get more traffic to their website by releasing a special edition magazine
