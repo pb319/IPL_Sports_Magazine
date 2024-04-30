@@ -1,4 +1,6 @@
-
+# ---------------------- It Deals with Preprossesing the model like, checking Linearity, Normality, etc assumptions 
+# ---------------------- along with addressing the problems (Step-wise Regression, Principal Component Analysis, etc.)
+#----------------------- in the dataset under use to fit an effective model
 # Installing Package ggplot2
 install.packages("ggplot2")
 library(ggplot2)
