@@ -11,7 +11,7 @@
 2. [Data Modeling](https://github.com/pb319/IPL_Sports_Magazine?tab=readme-ov-file#data-loading)
 3. [Primary Data Analysis](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#primary-data-analysis)
 4. [Orange Cap and Purple Cap Prediction](https://github.com/pb319/IPL_Sports_Magazine/edit/main/README.md#the-orange-and-purple-cap-prediction)
-5. [My Best 11]()
+5. [My Team 11]()
 ## Problem Statement
 **"Sports Basics"** is a sports blog company that entered space recently. They
 wanted to get more traffic to their website by releasing a special edition magazine
@@ -415,7 +415,7 @@ Here in this section, we will deal with various machine learning models and Stat
 - Reliability has been reconfirmed by _**R-Squared and Adjusted R-Squared**_
 - Explanation: _[Linked Post](https://bit.ly/3io5qqX)_
   
-![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/cdf20152-6806-4161-9b14-e4a618cbe705)
+  ![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/cdf20152-6806-4161-9b14-e4a618cbe705)
 
 ## Purple Cap:
 #### __Objective__: 
@@ -426,9 +426,25 @@ Here in this section, we will deal with various machine learning models and Stat
 
 - The approach mentioned earlier for "Orange Cap Prediction" has been imitated.
 
-	![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/d75224af-3572-477c-81bc-222c4b5bf7d5)
+
+  ![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/d75224af-3572-477c-81bc-222c4b5bf7d5)
+***
+- The Ultimate Result:
+
+![IPL_Sports_Magazine](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/61e79abe-3c81-4e95-be8a-626552e3715c)
+
+  
 
 
+## My Team 11
+
+1. Power BI
+- Data Analysis
+- Actionable Insights
+- ** [Explanation Video](https://lnkd.in/gj4eiFfv)
+- The Ultimate Result:
+
+![IPL_Sports_Magazine (1)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/3d866908-afa9-483e-b7d2-5224ff35c5c7)
 
 
 
