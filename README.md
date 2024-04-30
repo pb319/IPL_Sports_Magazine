@@ -389,5 +389,11 @@ In our first social update, we noticed anomalies in some SQL query outputs that 
 The Rectified SQL Queries are as follows:
 You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/IPL_Sports_Magazine/blob/main/Primary_Analysis%20(Rectified).sql))
 ***
+1. Power BI (Cleaning and Basic Analysis)
+  - Power Query (M Language)
+    
+
+
+***
 To be continued with Visualization, Validation and Actionable Insights.
 
