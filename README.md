@@ -457,7 +457,7 @@ Here in this section, we will deal with various machine learning models and Stat
 ![IPL_Sports_Magazine (1)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/3d866908-afa9-483e-b7d2-5224ff35c5c7)
 
 
-Thank You Very Much!! See You Soon, Until then Goodbye 👋👋
+Thank You So Much!! See You Soon, Until then Goodbye 👋👋
 
 ***
 
