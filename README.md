@@ -397,7 +397,9 @@ You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/I
     	
    > Both can be found in ([Final_Dashboard.pbix](https://github.com/pb319/IPL_Sports_Magazine/raw/main/Final_Dashboard.pbix))
 
-![1](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/b4656d19-7319-4425-ba7f-d857bae6261c)
+
+![2](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/0df16955-407e-4d4b-886c-ba5ca7b84c09)
+
 
 	
 
