@@ -403,10 +403,6 @@ You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/I
 Here in this section, we will deal with various machine learning models and Statistical analysis to optimize those models mostly deployed through R and Python as a part of our "Predictive Analytics".
 ![2](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/0df16955-407e-4d4b-886c-ba5ca7b84c09)
 
-#### Resources
-- Explanation: _[Linked Post](https://bit.ly/3io5qqX)_
-- Resources: Datasets are available [Here](https://github.com/pb319/IPL_Sports_Magazine/tree/main/Predictive%20Analytics)
-
 ## Orange Cap:
 #### __Objective__: 
 - To predict the player having maximum total run in the IPL season 2024.
@@ -429,6 +425,10 @@ Here in this section, we will deal with various machine learning models and Stat
 #### __Methodologies__: 
 
 - The approach mentioned earlier for "Orange Cap Prediction" has been imitated.
+
+#### Resources
+- Explanation: _[Linked Post](https://bit.ly/3io5qqX)_
+- Resources: Datasets are available [Here](https://github.com/pb319/IPL_Sports_Magazine/tree/main/Predictive%20Analytics)
 
 
   ![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/d75224af-3572-477c-81bc-222c4b5bf7d5)
