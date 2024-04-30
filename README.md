@@ -1,6 +1,6 @@
 # IPL_-Sports_Magazine
-Challenge #10: Analyse historical IPL data and provide insights on IPL 2024 for a Sports Magazine (Codebasics)
-Project Presentation PDF: [Linkedin Post](https://www.linkedin.com/posts/pranaybiswas_ipl-sports-magazine-activity-7190769304886280192-8a2H?utm_source=share&utm_medium=member_desktop)
+- Challenge #10: Analyse historical IPL data and provide insights on IPL 2024 for a Sports Magazine (Codebasics)
+- Project Presentation PDF: [Linkedin Post](https://www.linkedin.com/posts/pranaybiswas_ipl-sports-magazine-activity-7190769304886280192-8a2H?utm_source=share&utm_medium=member_desktop)
 ***
 ![Untitled design (16)](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/ab524470-01cf-479e-bc8d-9a36544fd143)
 ***
@@ -392,7 +392,11 @@ You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/I
 ***
 1. Power BI (Cleaning and Basic Analysis)
   - Power Query (M Language)
-    
+  - DAX Measures
+    	
+   > Both can be found in ([Final_Dashboard.pbix](https://github.com/pb319/IPL_Sports_Magazine/raw/main/Final_Dashboard.pbix))
+	
+
 
 
 ***
