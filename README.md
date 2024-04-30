@@ -406,5 +406,5 @@ You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/I
 
 
 ***
-To be continued with Visualization, Validation and Actionable Insights.
+
 
