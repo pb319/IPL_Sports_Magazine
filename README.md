@@ -10,7 +10,8 @@
 1. [Problem Statement](https://github.com/pb319/IPL_Sports_Magazine#problem-statement)
 2. [Data Modeling](https://github.com/pb319/IPL_Sports_Magazine?tab=readme-ov-file#data-loading)
 3. [Primary Data Analysis](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#primary-data-analysis)
-4. [Orange Cap and Purple Cap Prediction]()
+4. [Orange Cap and Purple Cap Prediction](https://github.com/pb319/IPL_Sports_Magazine/edit/main/README.md#the-orange-and-purple-cap-prediction)
+5. [My Best 11]()
 ## Problem Statement
 **"Sports Basics"** is a sports blog company that entered space recently. They
 wanted to get more traffic to their website by releasing a special edition magazine
@@ -398,9 +399,9 @@ You may refer to the docstring - ([Updated SQL Query](https://github.com/pb319/I
     	
    > Both can be found in ([Final_Dashboard.pbix](https://github.com/pb319/IPL_Sports_Magazine/raw/main/Final_Dashboard.pbix))
 
-# The Orange and Purple Cap Prediction
-Here in this section we will deal with various machine learning models and Satistical analysis to optimize those models mostly deployed through R and Python as a part of our "Predictive Analytics".
-
+## The Orange and Purple Cap Prediction
+Here in this section, we will deal with various machine learning models and Statistical analysis to optimize those models mostly deployed through R and Python as a part of our "Predictive Analytics".
+![2](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/0df16955-407e-4d4b-886c-ba5ca7b84c09)
 ## Orange Cap:
 #### __Objective__: 
 - To predict the player having maximum total run in the IPL season 2024.
@@ -413,17 +414,23 @@ Here in this section we will deal with various machine learning models and Satis
 - _**Test of Significance**_ has been considered while model building
 - Reliability has been reconfirmed by _**R-Squared and Adjusted R-Squared**_
 - Explanation: _[Linked Post](https://bit.ly/3io5qqX)_
+  
+![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/cdf20152-6806-4161-9b14-e4a618cbe705)
 
 ## Purple Cap:
 #### __Objective__: 
+
 - To predict the player with the most wickets in the IPL season 2024.
 
 #### __Methodologies__: 
+
 - The approach mentioned earlier for "Orange Cap Prediction" has been imitated.
 
+	![image](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/d75224af-3572-477c-81bc-222c4b5bf7d5)
 
 
-![2](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/0df16955-407e-4d4b-886c-ba5ca7b84c09)
+
+
 
 
 	
