@@ -1,4 +1,4 @@
-
+# ------------------------ It deals with transforming the predictor variables to feed according to the PCA model deployed in Python
 #Data Load
 library(readxl)
 d= read_excel("jos_raw.xlsx")
