@@ -444,10 +444,10 @@ Here in this section, we will deal with various machine learning models and Stat
 
 1. Power BI
 - Data Analysis
-	- I Classified the pool of players into various homogeneous groups (like Operers, Middle Order, Lower Order, etc.)
+	- I Classified the pool of players into various homogeneous groups (like Opener, Middle Order, Lower Order, etc.)
 	- To classify some criteria are needed. I got it from Analysis using Power BI.
    	- Illustration: Say we want to make criteria for openers then:
-   	  	1. Filter the pool using position 1,2 . We can't allow middle-order players to play the role of opener.
+   	  	1. Filter the pool using position 1,2. We can't allow middle-order players to play the role of opener.
    	  	2. Then Line Charts would depict 90 percentile points which may help us to put a cap for further filtering like Strike Rate, Average Ball Faced, etc.
    	  	3. Ordering players based on Standard Deviation of runs/Strike Rate/anything else may help choose the right ones. 
 - Actionable Insights
