@@ -1,5 +1,5 @@
 # IPL_-Sports_Magazine
-- Challenge #10: Analyse historical IPL data and provide insights on IPL 2024 for a Sports Magazine (Codebasics)
+- Challenge #10: Analyse historical IPL data and provide insights on IPL 2024 for a Sports Magazine (Codebasics).
 - Project Presentation PDF: [Linkedin Post](https://www.linkedin.com/posts/pranaybiswas_ipl-sports-magazine-activity-7190769304886280192-8a2H?utm_source=share&utm_medium=member_desktop).
 ***
 ![1](https://github.com/pb319/IPL_Sports_Magazine/assets/66114329/b4656d19-7319-4425-ba7f-d857bae6261c)
