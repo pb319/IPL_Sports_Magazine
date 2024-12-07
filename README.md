@@ -6,7 +6,7 @@
 
 ***
 ## Table of Contents:
-0. [Project Link](https://codebasics.io/challenge/codebasics-resume-project-challenge)
+0. [Project Link](https://codebasics.io/challenge/codebasics-resume-project-challenge).
 1. [Problem Statement](https://github.com/pb319/IPL_Sports_Magazine#problem-statement)
 2. [Data Modeling](https://github.com/pb319/IPL_Sports_Magazine?tab=readme-ov-file#data-loading)
 3. [Primary Data Analysis](https://github.com/pb319/IPL_Sports_Magazine/blob/main/README.md#primary-data-analysis)
