@@ -427,7 +427,7 @@ Here in this section, we will deal with various machine learning models and Stat
 - The approach mentioned earlier for "Orange Cap Prediction" has been imitated.
 
 #### Resources
-- Explanation: _[Linked Post]([https://bit.ly/3io5qqX](https://www.linkedin.com/posts/pranaybiswas_resumeprojectchallenge10-resumeprojectchallenge10-activity-7188440262627471362-Ucpx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYuL-wBeFdwnAftI3Yf42fNC6Mj_ETyCVE))_
+- Explanation: [Linked Post](https://www.linkedin.com/posts/pranaybiswas_resumeprojectchallenge10-resumeprojectchallenge10-activity-7188440262627471362-Ucpx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYuL-wBeFdwnAftI3Yf42fNC6Mj_ETyCVE)
 - Resources: Datasets are available [Here](https://github.com/pb319/IPL_Sports_Magazine/tree/main/Predictive%20Analytics)
 
 
